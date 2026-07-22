@@ -19,9 +19,9 @@ const useStyles = makeStyles({
     position: 'sticky',
     top: 0,
     zIndex: 10,
-    backdropFilter: 'saturate(180%) blur(12px)',
-    backgroundColor: 'rgba(15, 15, 15, 0.72)',
-    ...shorthands.borderBottom('1px', 'solid', tokens.colorNeutralStroke2),
+    backdropFilter: 'saturate(180%) blur(14px)',
+    backgroundColor: 'rgba(10, 10, 15, 0.68)',
+    ...shorthands.borderBottom('1px', 'solid', 'rgba(255, 255, 255, 0.06)'),
   },
   headerInner: {
     maxWidth: '960px',
@@ -75,13 +75,25 @@ const useStyles = makeStyles({
     maxWidth: '960px',
     marginLeft: 'auto',
     marginRight: 'auto',
+    width: '100%',
     ...shorthands.padding('24px'),
     color: tokens.colorNeutralForeground3,
     fontSize: tokens.fontSizeBase200,
     display: 'flex',
+    alignItems: 'center',
     justifyContent: 'space-between',
+    columnGap: '16px',
     flexWrap: 'wrap',
     rowGap: '8px',
+  },
+  footerLeft: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    columnGap: '8px',
+  },
+  footerMono: {
+    fontFamily: `'Cascadia Code', 'Fira Code', ui-monospace, monospace`,
+    color: tokens.colorNeutralForeground3,
   },
 });
 
@@ -153,8 +165,12 @@ export function AppLayout({ children }: Props) {
 
       <Divider />
       <footer className={styles.footer}>
-        <Text>© {new Date().getFullYear()} Frontier Punks</Text>
-        <Text>Built with React & Fluent UI</Text>
+        <span className={styles.footerLeft}>
+          <Text>© {new Date().getFullYear()} Frontier Punks</Text>
+        </span>
+        <Text className={styles.footerMono}>
+          // built with React + Fluent UI · deployed on GitHub Pages
+        </Text>
       </footer>
     </div>
   );

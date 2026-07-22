@@ -1,8 +1,5 @@
 import { Link } from 'react-router-dom';
 import {
-  Card,
-  CardHeader,
-  CardPreview,
   Body1,
   Caption1,
   Subtitle1,
@@ -14,47 +11,70 @@ import {
 import type { Post } from '../posts';
 
 const useStyles = makeStyles({
-  card: {
-    height: '100%',
-    ...shorthands.padding('16px'),
-    transitionProperty: 'transform, box-shadow, border-color',
-    transitionDuration: '160ms',
-    ':hover': {
-      transform: 'translateY(-2px)',
-      boxShadow: tokens.shadow16,
-      ...shorthands.borderColor(tokens.colorBrandStroke1),
-    },
-  },
   link: {
     textDecoration: 'none',
     color: 'inherit',
     display: 'block',
     height: '100%',
   },
+  card: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    background: 'rgba(20, 20, 28, 0.55)',
+    border: '1px solid rgba(255, 255, 255, 0.06)',
+    borderRadius: '14px',
+    backdropFilter: 'blur(10px)',
+    overflow: 'hidden',
+    transitionProperty: 'transform, box-shadow, border-color, background',
+    transitionDuration: '200ms',
+    ':hover': {
+      transform: 'translateY(-3px)',
+      background: 'rgba(28, 24, 40, 0.7)',
+      borderColor: 'rgba(139, 92, 246, 0.45)',
+      boxShadow:
+        '0 12px 40px rgba(0,0,0,0.5), 0 0 24px rgba(139,92,246,0.18)',
+    },
+  },
   preview: {
-    height: '140px',
+    height: '132px',
+    position: 'relative',
     background:
-      'linear-gradient(135deg, rgba(139,92,246,0.35) 0%, rgba(34,211,238,0.25) 100%)',
+      'linear-gradient(135deg, rgba(139,92,246,0.55), rgba(34,211,238,0.35) 60%, rgba(244,114,182,0.45))',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    color: tokens.colorNeutralForeground1,
-    fontSize: '48px',
-    fontWeight: 700,
+    color: 'rgba(255,255,255,0.95)',
+    fontSize: '44px',
+    fontWeight: 800,
     letterSpacing: '-1px',
-    ...shorthands.borderRadius(tokens.borderRadiusMedium),
-    ...shorthands.overflow('hidden'),
+    overflow: 'hidden',
+  },
+  previewScan: {
+    position: 'absolute',
+    inset: 0,
+    background:
+      'repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 4px)',
+    mixBlendMode: 'overlay',
+    pointerEvents: 'none',
+  },
+  body: {
+    display: 'flex',
+    flexDirection: 'column',
+    flexGrow: 1,
+    rowGap: '8px',
+    ...shorthands.padding('16px', '18px', '18px'),
+  },
+  excerpt: {
+    color: tokens.colorNeutralForeground2,
+    flexGrow: 1,
   },
   meta: {
     display: 'flex',
-    columnGap: '8px',
+    columnGap: '6px',
     rowGap: '4px',
     flexWrap: 'wrap',
-    marginTop: '8px',
-  },
-  excerpt: {
-    marginTop: '8px',
-    color: tokens.colorNeutralForeground2,
+    marginTop: '4px',
   },
 });
 
@@ -79,38 +99,39 @@ export function PostCard({ post }: Props) {
 
   return (
     <Link to={`/posts/${post.slug}`} className={styles.link}>
-      <Card className={styles.card}>
-        <CardPreview>
+      <article className={styles.card}>
+        <div className={styles.preview}>
           {post.cover ? (
             <img
               src={post.cover}
               alt=""
-              style={{ width: '100%', height: 140, objectFit: 'cover' }}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           ) : (
-            <div className={styles.preview}>{initials(post.title)}</div>
+            <>
+              <span>{initials(post.title)}</span>
+              <span className={styles.previewScan} />
+            </>
           )}
-        </CardPreview>
-        <CardHeader
-          header={<Subtitle1>{post.title}</Subtitle1>}
-          description={
-            <Caption1>
-              {dateStr}
-              {post.author ? ` · ${post.author}` : ''}
-            </Caption1>
-          }
-        />
-        {post.excerpt && <Body1 className={styles.excerpt}>{post.excerpt}</Body1>}
-        {post.tags && post.tags.length > 0 && (
-          <div className={styles.meta}>
-            {post.tags.map((tag) => (
-              <Tag key={tag} size="small" appearance="brand">
-                {tag}
-              </Tag>
-            ))}
-          </div>
-        )}
-      </Card>
+        </div>
+        <div className={styles.body}>
+          <Subtitle1>{post.title}</Subtitle1>
+          <Caption1>
+            {dateStr}
+            {post.author ? ` · ${post.author}` : ''}
+          </Caption1>
+          {post.excerpt && <Body1 className={styles.excerpt}>{post.excerpt}</Body1>}
+          {post.tags && post.tags.length > 0 && (
+            <div className={styles.meta}>
+              {post.tags.map((tag) => (
+                <Tag key={tag} size="extra-small" appearance="brand">
+                  {tag}
+                </Tag>
+              ))}
+            </div>
+          )}
+        </div>
+      </article>
     </Link>
   );
 }

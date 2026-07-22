@@ -24,11 +24,10 @@ Still the same two dudes behind the keyboard — Ben and Daniel. Same irreverent
 
 Expect posts on:
 
-- **Azure Virtual Desktop & Windows 365** — still core to what we do
-- **Cloud PC and modern management** — Intune, Autopilot, Device Preparation Policy, and the glue that holds it all together
-- **Networking and platform changes** that quietly break your environment if nobody warns you (we'll keep warning you)
 - **AI agents** — Windows 365 for Agents, Computer-Using Agents (CUA), and everything about giving agents a desktop to actually work in
 - **Whatever's next** — new Azure services, AI-assisted IT ops, and anything else sitting at the frontier of enterprise cloud computing that's worth digging into
+- **Azure Virtual Desktop & Windows 365** — still core to what we do
+- **Networking and platform changes** that quietly break your environment if nobody warns you (we'll keep warning you)
 
 ## What about avdpunks.com?
 

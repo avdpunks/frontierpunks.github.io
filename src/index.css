@@ -8,7 +8,7 @@ body,
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background: #0f0f0f;
+  background: #0a0a0f;
 }
 
 body {
@@ -16,23 +16,93 @@ body {
     BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 * {
   box-sizing: border-box;
 }
 
-a {
-  color: inherit;
+/* --- Animated aurora background ---------------------------------- */
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  inset: -20% -20% -20% -20%;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(80px);
+  will-change: transform;
 }
+
+body::before {
+  background:
+    radial-gradient(40% 30% at 20% 30%, rgba(139, 92, 246, 0.55), transparent 70%),
+    radial-gradient(35% 30% at 80% 20%, rgba(34, 211, 238, 0.45), transparent 70%),
+    radial-gradient(45% 35% at 70% 80%, rgba(244, 114, 182, 0.40), transparent 70%);
+  opacity: 0.55;
+  animation: aurora-a 24s ease-in-out infinite alternate;
+}
+
+body::after {
+  background:
+    radial-gradient(30% 25% at 60% 40%, rgba(59, 130, 246, 0.35), transparent 70%),
+    radial-gradient(30% 25% at 15% 75%, rgba(168, 85, 247, 0.35), transparent 70%);
+  opacity: 0.4;
+  animation: aurora-b 32s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes aurora-a {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(3%, -2%, 0) scale(1.05); }
+  100% { transform: translate3d(-2%, 2%, 0) scale(0.97); }
+}
+@keyframes aurora-b {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-4%, 3%, 0) scale(1.08); }
+}
+
+/* Subtle grid overlay for the terminal / cyberpunk feel */
+#root::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 30%, black 45%, transparent 85%);
+          mask-image: radial-gradient(ellipse at 50% 30%, black 45%, transparent 85%);
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none;
+  }
+}
+
+/* --- Typography / prose ------------------------------------------ */
+
+a { color: inherit; }
 
 pre {
   overflow-x: auto;
   padding: 16px;
-  border-radius: 8px;
-  background: #1a1a1a;
+  border-radius: 10px;
+  background: rgba(20, 20, 28, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 code {
@@ -42,9 +112,11 @@ code {
 }
 
 :not(pre) > code {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(139, 92, 246, 0.14);
+  color: #e0d4ff;
   padding: 2px 6px;
   border-radius: 4px;
+  border: 1px solid rgba(139, 92, 246, 0.25);
 }
 
 blockquote {
@@ -58,5 +130,10 @@ blockquote {
 
 img {
   max-width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.45);
+  color: #fff;
 }
