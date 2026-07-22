@@ -61,6 +61,13 @@ const useStyles = makeStyles({
     mixBlendMode: 'overlay',
     pointerEvents: 'none',
   },
+  previewMascot: {
+    width: '78%',
+    height: '78%',
+    objectFit: 'contain',
+    imageRendering: 'pixelated',
+    filter: 'drop-shadow(0 6px 18px rgba(0,0,0,0.4))',
+  },
   body: {
     display: 'flex',
     flexDirection: 'column',
@@ -85,13 +92,6 @@ interface Props {
   post: Post;
 }
 
-function initials(title: string): string {
-  const words = title.trim().split(/\s+/).filter(Boolean);
-  if (words.length === 0) return '?';
-  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
-  return (words[0][0] + words[1][0]).toUpperCase();
-}
-
 export function PostCard({ post }: Props) {
   const styles = useStyles();
   const dateStr = new Date(post.date).toLocaleDateString(undefined, {
@@ -112,7 +112,12 @@ export function PostCard({ post }: Props) {
             />
           ) : (
             <>
-              <span>{initials(post.title)}</span>
+              <img
+                src="/logo.png"
+                alt=""
+                className={styles.previewMascot}
+                draggable={false}
+              />
               <span className={styles.previewScan} />
             </>
           )}

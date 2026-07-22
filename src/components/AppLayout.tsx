@@ -40,8 +40,8 @@ const useStyles = makeStyles({
     color: tokens.colorNeutralForeground1,
   },
   brandMark: {
-    width: '36px',
-    height: '36px',
+    width: '52px',
+    height: '52px',
     display: 'inline-block',
     borderRadius: '50%',
     ...shorthands.border('2px', 'solid', 'rgba(139, 92, 246, 0.55)'),
@@ -49,13 +49,13 @@ const useStyles = makeStyles({
     imageRendering: 'pixelated',
     backgroundColor: '#ffffff',
     boxShadow:
-      '0 0 12px rgba(139, 92, 246, 0.35), 0 0 24px rgba(34, 211, 238, 0.18)',
+      '0 0 14px rgba(139, 92, 246, 0.4), 0 0 28px rgba(34, 211, 238, 0.2)',
     transitionProperty: 'transform, box-shadow',
     transitionDuration: '200ms',
     ':hover': {
       transform: 'scale(1.06) rotate(-2deg)',
       boxShadow:
-        '0 0 16px rgba(139, 92, 246, 0.55), 0 0 32px rgba(34, 211, 238, 0.3)',
+        '0 0 18px rgba(139, 92, 246, 0.6), 0 0 36px rgba(34, 211, 238, 0.35)',
     },
   },
   nav: {
@@ -117,8 +117,8 @@ function BrandMark({ className }: { className?: string }) {
       src="/logo.png"
       alt="FrontierPunks mascot"
       className={className}
-      width={36}
-      height={36}
+      width={52}
+      height={52}
       draggable={false}
     />
   );
@@ -143,7 +143,7 @@ export function AppLayout({ children }: Props) {
         <div className={styles.headerInner}>
           <Link to="/" className={styles.brand}>
             <BrandMark className={styles.brandMark} />
-            <Title3>Frontier Punks</Title3>
+            <Title3>FrontierPunks</Title3>
           </Link>
           <nav className={styles.nav}>
             {navItems.map((item) => (
@@ -166,7 +166,7 @@ export function AppLayout({ children }: Props) {
       <Divider />
       <footer className={styles.footer}>
         <span className={styles.footerLeft}>
-          <Text>© {new Date().getFullYear()} Frontier Punks</Text>
+          <Text>© {new Date().getFullYear()} FrontierPunks</Text>
         </span>
         <Text className={styles.footerMono}>
           // built with React + Fluent UI · deployed on GitHub Pages

@@ -1,4 +1,4 @@
-# Frontier Punks
+# FrontierPunks
 
 A minimal, statically-hosted blog built with **React**, **Vite**, and
 **[Fluent UI v9](https://react.fluentui.dev/)**. Posts are markdown files.

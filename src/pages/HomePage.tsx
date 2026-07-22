@@ -205,6 +205,13 @@ const useStyles = makeStyles({
     mixBlendMode: 'overlay',
     pointerEvents: 'none',
   },
+  featuredMascot: {
+    width: '72%',
+    height: '72%',
+    objectFit: 'contain',
+    imageRendering: 'pixelated',
+    filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.45))',
+  },
 
   grid: {
     display: 'grid',
@@ -233,13 +240,6 @@ if (!styleTag) {
     }
   `;
   document.head.appendChild(el);
-}
-
-function initials(title: string): string {
-  const words = title.trim().split(/\s+/).filter(Boolean);
-  if (words.length === 0) return '?';
-  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
-  return (words[0][0] + words[1][0]).toUpperCase();
 }
 
 export function HomePage() {
@@ -315,7 +315,12 @@ export function HomePage() {
                 />
               ) : (
                 <>
-                  <span>{initials(featured.title)}</span>
+                  <img
+                    src="/logo.png"
+                    alt=""
+                    className={styles.featuredMascot}
+                    draggable={false}
+                  />
                   <span className={styles.featuredRightScan} />
                 </>
               )}
