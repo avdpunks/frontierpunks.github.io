@@ -259,9 +259,10 @@ export function HomePage() {
           from the frontier.
         </h1>
         <Body1 as="p" block className={styles.tagline}>
-          Ben and Daniel. Azure Virtual Desktop, Windows 365, modern management,
-          and AI agents — with the scripts, the fixes, and the lessons the docs
-          leave out.
+          Ben and Daniel — chasing the frontier where AI agents,
+          Computer-Using Agents (CUA), and cloud desktops collide. New Azure
+          services, agentic workflows, and the stuff sitting one commit ahead
+          of the docs.
         </Body1>
         <span className={styles.taglineMono}>
           $ break it in a lab → figure out why → hand you the working answer

@@ -31,8 +31,17 @@ export function AboutPage() {
         <FluentLink href="https://avdpunks.com/" target="_blank" rel="noreferrer">
           avdpunks.com
         </FluentLink>
-        . Same no-fluff attitude, new home for everything sitting on the edge of
-        Azure Virtual Desktop, Windows 365, modern management, and AI agents.
+        . New home for what's next: AI agents, Computer-Using Agents (CUA),
+        Windows 365 for Agents, new Azure services, and everything at the edge
+        of enterprise cloud + AI.
+      </Body1>
+      <Body1 as="p" block className={styles.para}>
+        AVD and Windows 365 deep-dives still live on{' '}
+        <FluentLink href="https://avdpunks.com/" target="_blank" rel="noreferrer">
+          avdpunks.com
+        </FluentLink>
+        {' '}— nothing there is going anywhere. FrontierPunks is where we cover
+        the ground beyond it.
       </Body1>
       <Body1 as="p" block className={styles.para}>
         We write about the stuff the docs don't cover yet: break it in a lab,
