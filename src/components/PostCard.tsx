@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     ':hover': {
       transform: 'translateY(-3px)',
       backgroundColor: 'rgba(28, 24, 40, 0.7)',
-      borderColor: 'rgba(139, 92, 246, 0.45)',
+      ...shorthands.borderColor('rgba(139, 92, 246, 0.45)'),
       boxShadow:
         '0 12px 40px rgba(0,0,0,0.5), 0 0 24px rgba(139,92,246,0.18)',
     },
