@@ -56,6 +56,14 @@ const useStyles = makeStyles({
     objectFit: 'cover',
     display: 'block',
   },
+  avatarImgBen: {
+    objectPosition: '72% 30%',
+    transform: 'scale(1.35)',
+    transformOrigin: '72% 30%',
+  },
+  avatarImgDaniel: {
+    objectPosition: 'center 30%',
+  },
   memberName: {
     marginTop: '12px',
   },
@@ -79,7 +87,7 @@ export function AboutPage() {
             <img
               src="/ben.jpg"
               alt="Ben"
-              className={styles.avatarImg}
+              className={`${styles.avatarImg} ${styles.avatarImgBen}`}
               loading="lazy"
             />
           </div>
@@ -95,7 +103,7 @@ export function AboutPage() {
             <img
               src="/daniel.jpg"
               alt="Daniel"
-              className={styles.avatarImg}
+              className={`${styles.avatarImg} ${styles.avatarImgDaniel}`}
               loading="lazy"
             />
           </div>
