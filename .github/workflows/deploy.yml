@@ -25,7 +25,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
+          # Only enable npm cache once a package-lock.json is committed.
+          # setup-node fails if `cache: npm` is set but no lockfile exists yet.
+          cache: ${{ hashFiles('package-lock.json') != '' && 'npm' || '' }}
 
       - name: Install dependencies
         # Use npm ci when a lockfile exists (reproducible), fall back to
