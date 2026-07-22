@@ -47,36 +47,6 @@ export function AboutPage() {
         We write about the stuff the docs don't cover yet: break it in a lab,
         figure out why, and hand you the working answer.
       </Body1>
-      <Body1 as="p" block className={styles.para}>
-        This site is a static blog built with{' '}
-        <FluentLink href="https://react.dev/" target="_blank" rel="noreferrer">
-          React
-        </FluentLink>
-        ,{' '}
-        <FluentLink href="https://vitejs.dev/" target="_blank" rel="noreferrer">
-          Vite
-        </FluentLink>
-        , and{' '}
-        <FluentLink
-          href="https://react.fluentui.dev/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Fluent UI v9
-        </FluentLink>
-        . Posts are markdown files in the <code>/posts</code> folder.
-      </Body1>
-      <Body1 as="p" block className={styles.para}>
-        Source lives on{' '}
-        <FluentLink
-          href="https://github.com/avdpunks/frontierpunks.github.io"
-          target="_blank"
-          rel="noreferrer"
-        >
-          GitHub
-        </FluentLink>
-        .
-      </Body1>
     </section>
   );
 }
