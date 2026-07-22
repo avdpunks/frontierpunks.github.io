@@ -49,8 +49,9 @@ export function HomePage() {
           <span className={styles.gradient}>Dispatches</span> from the frontier.
         </LargeTitle>
         <Body1 as="p" block className={styles.tagline}>
-          Notes, experiments, and long-form field reports from the Frontier Punks.
-          Built with React and Fluent UI — deployed on GitHub Pages.
+          Ben and Daniel. Azure Virtual Desktop, Windows 365, modern management,
+          and AI agents — with the scripts, the fixes, and the lessons the docs
+          leave out.
         </Body1>
       </section>
 

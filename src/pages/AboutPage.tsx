@@ -27,8 +27,16 @@ export function AboutPage() {
         About
       </LargeTitle>
       <Body1 as="p" block className={styles.para}>
-        Frontier Punks is a small collective writing about the edges of software,
-        systems, and whatever else keeps us up at night.
+        FrontierPunks is Ben and Daniel — the same two dudes behind{' '}
+        <FluentLink href="https://avdpunks.com/" target="_blank" rel="noreferrer">
+          avdpunks.com
+        </FluentLink>
+        . Same no-fluff attitude, new home for everything sitting on the edge of
+        Azure Virtual Desktop, Windows 365, modern management, and AI agents.
+      </Body1>
+      <Body1 as="p" block className={styles.para}>
+        We write about the stuff the docs don't cover yet: break it in a lab,
+        figure out why, and hand you the working answer.
       </Body1>
       <Body1 as="p" block className={styles.para}>
         This site is a static blog built with{' '}
@@ -58,7 +66,7 @@ export function AboutPage() {
         >
           GitHub
         </FluentLink>
-        . Pull requests welcome.
+        .
       </Body1>
     </section>
   );
