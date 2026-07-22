@@ -8,17 +8,4 @@ export default defineConfig({
   // (avdpunks.github.io/frontierpunks.github.io/), change base to
   // '/frontierpunks.github.io/'.
   base: '/',
-  define: {
-    // gray-matter references `process` in the browser; stub it out.
-    'process.env': {},
-  },
-  resolve: {
-    alias: {
-      // gray-matter -> buffer polyfill for the browser
-      buffer: 'buffer',
-    },
-  },
-  optimizeDeps: {
-    include: ['buffer'],
-  },
 });
