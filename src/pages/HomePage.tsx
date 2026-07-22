@@ -34,19 +34,23 @@ const useStyles = makeStyles({
     width: '8px',
     height: '8px',
     borderRadius: '50%',
-    background: '#22d3ee',
+    backgroundColor: '#22d3ee',
     boxShadow: '0 0 12px #22d3ee, 0 0 24px rgba(34,211,238,0.6)',
-    animation: 'pulseDot 2s ease-in-out infinite',
+    animationName: 'pulseDot',
+    animationDuration: '2s',
+    animationTimingFunction: 'ease-in-out',
+    animationIterationCount: 'infinite',
   },
   heroTitle: {
     fontSize: 'clamp(48px, 8vw, 92px)',
     fontWeight: 800,
     letterSpacing: '-0.03em',
     lineHeight: 1.02,
-    margin: '0',
+    marginTop: '0',
+    marginBottom: '0',
   },
   gradient: {
-    background:
+    backgroundImage:
       'linear-gradient(100deg, #a78bfa 0%, #22d3ee 45%, #f472b6 100%)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
@@ -78,7 +82,7 @@ const useStyles = makeStyles({
   sectionRule: {
     flexGrow: 1,
     height: '1px',
-    background:
+    backgroundImage:
       'linear-gradient(90deg, rgba(139,92,246,0.5) 0%, rgba(139,92,246,0) 100%)',
   },
   sectionLabel: {
@@ -97,12 +101,12 @@ const useStyles = makeStyles({
     rowGap: '24px',
     ...shorthands.padding('32px'),
     borderRadius: '20px',
-    background:
+    backgroundImage:
       'linear-gradient(135deg, rgba(139,92,246,0.12) 0%, rgba(34,211,238,0.08) 60%, rgba(244,114,182,0.10) 100%)',
-    border: '1px solid rgba(255,255,255,0.08)',
+    ...shorthands.border('1px', 'solid', 'rgba(255,255,255,0.08)'),
     backdropFilter: 'blur(12px)',
     boxShadow: '0 10px 40px rgba(0,0,0,0.35)',
-    overflow: 'hidden',
+    ...shorthands.overflow('hidden'),
     textDecoration: 'none',
     color: 'inherit',
     transitionProperty: 'transform, box-shadow, border-color',
@@ -122,7 +126,7 @@ const useStyles = makeStyles({
     right: '-20%',
     width: '60%',
     height: '200%',
-    background:
+    backgroundImage:
       'radial-gradient(closest-side, rgba(34,211,238,0.35), transparent 70%)',
     pointerEvents: 'none',
     filter: 'blur(20px)',
@@ -147,7 +151,10 @@ const useStyles = makeStyles({
     fontWeight: 700,
     lineHeight: 1.15,
     letterSpacing: '-0.02em',
-    margin: '8px 0 12px',
+    marginTop: '8px',
+    marginRight: '0',
+    marginBottom: '12px',
+    marginLeft: '0',
   },
   featuredExcerpt: {
     color: tokens.colorNeutralForeground2,
@@ -175,7 +182,7 @@ const useStyles = makeStyles({
     zIndex: 1,
     minHeight: '220px',
     borderRadius: '14px',
-    background:
+    backgroundImage:
       'linear-gradient(135deg, rgba(139,92,246,0.45), rgba(34,211,238,0.25) 60%, rgba(244,114,182,0.35))',
     display: 'flex',
     alignItems: 'center',
@@ -185,12 +192,15 @@ const useStyles = makeStyles({
     letterSpacing: '-2px',
     color: 'rgba(255,255,255,0.92)',
     textShadow: '0 4px 24px rgba(0,0,0,0.35)',
-    overflow: 'hidden',
+    ...shorthands.overflow('hidden'),
   },
   featuredRightScan: {
     position: 'absolute',
-    inset: 0,
-    background:
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    backgroundImage:
       'repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 4px)',
     mixBlendMode: 'overlay',
     pointerEvents: 'none',
@@ -206,7 +216,7 @@ const useStyles = makeStyles({
     ...shorthands.padding('40px'),
     textAlign: 'center',
     color: tokens.colorNeutralForeground3,
-    border: '1px dashed rgba(255,255,255,0.12)',
+    ...shorthands.border('1px', 'dashed', 'rgba(255,255,255,0.12)'),
     borderRadius: '12px',
   },
 });

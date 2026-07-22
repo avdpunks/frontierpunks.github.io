@@ -21,16 +21,16 @@ const useStyles = makeStyles({
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
-    background: 'rgba(20, 20, 28, 0.55)',
-    border: '1px solid rgba(255, 255, 255, 0.06)',
+    backgroundColor: 'rgba(20, 20, 28, 0.55)',
+    ...shorthands.border('1px', 'solid', 'rgba(255, 255, 255, 0.06)'),
     borderRadius: '14px',
     backdropFilter: 'blur(10px)',
-    overflow: 'hidden',
-    transitionProperty: 'transform, box-shadow, border-color, background',
+    ...shorthands.overflow('hidden'),
+    transitionProperty: 'transform, box-shadow, border-color, background-color',
     transitionDuration: '200ms',
     ':hover': {
       transform: 'translateY(-3px)',
-      background: 'rgba(28, 24, 40, 0.7)',
+      backgroundColor: 'rgba(28, 24, 40, 0.7)',
       borderColor: 'rgba(139, 92, 246, 0.45)',
       boxShadow:
         '0 12px 40px rgba(0,0,0,0.5), 0 0 24px rgba(139,92,246,0.18)',
@@ -39,7 +39,7 @@ const useStyles = makeStyles({
   preview: {
     height: '132px',
     position: 'relative',
-    background:
+    backgroundImage:
       'linear-gradient(135deg, rgba(139,92,246,0.55), rgba(34,211,238,0.35) 60%, rgba(244,114,182,0.45))',
     display: 'flex',
     alignItems: 'center',
@@ -48,12 +48,15 @@ const useStyles = makeStyles({
     fontSize: '44px',
     fontWeight: 800,
     letterSpacing: '-1px',
-    overflow: 'hidden',
+    ...shorthands.overflow('hidden'),
   },
   previewScan: {
     position: 'absolute',
-    inset: 0,
-    background:
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    backgroundImage:
       'repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 4px)',
     mixBlendMode: 'overlay',
     pointerEvents: 'none',
