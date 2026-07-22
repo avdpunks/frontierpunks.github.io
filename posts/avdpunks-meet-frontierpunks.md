@@ -2,7 +2,7 @@
 title: "AVDPunks Meet FrontierPunks — Same Dudes, New Home for What's Next"
 date: "2026-07-22"
 author: "Ben & Daniel"
-excerpt: "AVDPunks isn't going anywhere. But the frontier moved — so we built a new home for everything sitting on the edge of AVD, Windows 365, and AI agents."
+excerpt: "AVDPunks stays the home for AVD and Windows 365. FrontierPunks is where we go next — AI agents, CUA, Windows 365 for Agents, and whatever new Azure surface shows up tomorrow."
 tags: ["announcement"]
 ---
 
