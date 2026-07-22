@@ -40,9 +40,23 @@ const useStyles = makeStyles({
     color: tokens.colorNeutralForeground1,
   },
   brandMark: {
-    width: '28px',
-    height: '28px',
+    width: '36px',
+    height: '36px',
     display: 'inline-block',
+    borderRadius: '50%',
+    ...shorthands.border('2px', 'solid', 'rgba(139, 92, 246, 0.55)'),
+    objectFit: 'cover',
+    imageRendering: 'pixelated',
+    backgroundColor: '#ffffff',
+    boxShadow:
+      '0 0 12px rgba(139, 92, 246, 0.35), 0 0 24px rgba(34, 211, 238, 0.18)',
+    transitionProperty: 'transform, box-shadow',
+    transitionDuration: '200ms',
+    ':hover': {
+      transform: 'scale(1.06) rotate(-2deg)',
+      boxShadow:
+        '0 0 16px rgba(139, 92, 246, 0.55), 0 0 32px rgba(34, 211, 238, 0.3)',
+    },
   },
   nav: {
     display: 'flex',
@@ -97,30 +111,16 @@ const useStyles = makeStyles({
   },
 });
 
-function BrandMark() {
+function BrandMark({ className }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 64 64"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      style={{ width: 28, height: 28 }}
-    >
-      <defs>
-        <linearGradient id="fp-grad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#8b5cf6" />
-          <stop offset="100%" stopColor="#22d3ee" />
-        </linearGradient>
-      </defs>
-      <path
-        d="M14 46 L14 18 L32 34 L50 18 L50 46"
-        stroke="url(#fp-grad)"
-        strokeWidth="6"
-        strokeLinejoin="round"
-        strokeLinecap="round"
-        fill="none"
-      />
-      <circle cx="32" cy="52" r="3" fill="url(#fp-grad)" />
-    </svg>
+    <img
+      src="/logo.png"
+      alt="FrontierPunks mascot"
+      className={className}
+      width={36}
+      height={36}
+      draggable={false}
+    />
   );
 }
 
@@ -142,7 +142,7 @@ export function AppLayout({ children }: Props) {
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <Link to="/" className={styles.brand}>
-            <BrandMark />
+            <BrandMark className={styles.brandMark} />
             <Title3>Frontier Punks</Title3>
           </Link>
           <nav className={styles.nav}>
